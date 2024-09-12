@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+*{
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+
+body{
+    background-color: #eee;
+}
+
+ul 
+{
+padding:0;
+display: flex;
+justify-content: space-between;
+gap:1rem;
+list-style: none;
+}
+
+a{
+display: inline-block;
+text-decoration: none;
+color:#fff
+}
+
+.container 
+{
+padding:0rem 8rem;
+display: flex;
+justify-content: space-between;
+align-items: center;
+width:100%;
+gap:2rem
+}
+
+.header_info
+{
+display: flex;
+justify-content: start;
+background-color: #333;
+color:#fff;
+text-transform: capitalize;
+font-family: 'Poppins',sans-serif;
+}
+
+.header_info .container 
+{
+justify-content: space-between;
+}
+
+.header_info .container .header__info__details 
+{
+display: flex;
+gap:1rem
+}
+
+.header_info ul.header__info--social 
+{
+justify-self: start;
+}
+
+
+.header_info i  
+{
+color:#C59D5F
+}
+
+.header_info button 
+{
+justify-self: flex-end;
+padding:1rem 2rem;
+position: relative;
+background-color: #C59D5F;
+color:#fff;
+font-size: 1.4rem;
+font-family: 'Poppins',sans-serif;
+text-transform: capitalize;
+border:none;
+}
+
+
+nav 
+{
+background-color: #f9f9f9;
+padding:1.5rem 0;
+}
+
+nav .logo img 
+{
+max-width: 180px;
+}
+
+nav ul.navbar_links
+{
+align-self: center;
+gap:3rem
+}
+
+nav ul li a
+{
+font-size: 1.2rem;
+text-decoration: none;
+color:#333;
+font-weight: 400;
+font-family: "Poppins", sans-serif;
+transition: color .5s ease-in-out;
+}
+
+nav ul li  a:hover 
+{
+color:#C59D5F
+}
+
+nav ul.navigation_controls li
+{
+  background-color: #fff;
+  padding:1rem 1.2rem;
+  font-size: 1.2rem;
+  border-radius: 100%;
+  transition: all .5s linear;
+  box-shadow: 0px 0px 1px #eee;
+  cursor: pointer;
+}
+
+nav ul.navigation_controls li:hover 
+{
+    background-color: #C59D5F;
+    color:#fff
+
+}
+
+
+header.sticky{
+position: sticky;
+top:0px;
+left:0px;
+animation: fadeIn .5s linear;
+}
+
+header .hidden 
+{
+display: none;
+}
+
+@keyframes fadeIn {
+0%{
+opacity: 0;
+transform: translateY(-10px); 
+
+}
+
+100%{
+opacity: 1;
+transform: translateY(0px); 
+}
+    
+}
