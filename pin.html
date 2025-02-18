@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pin Number Form</title>
+  <style>
+    .input-container {
+      display: flex;
+      flex-direction: row; /* Or row-reverse for RTL */
+      margin-top: 16px;
+      margin-bottom: 16px;
+    }
+    .input-container input {
+      width: 40px;
+      text-align: center;
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <form class="input-container">
+    <input id="input1" type="text" maxlength="1" class="ltr" onkeydown="moveFocusToPrev(event, null)" oninput="moveFocus(event, input2)" />
+    <input id="input2" type="text" maxlength="1" class="ltr" onkeydown="moveFocusToPrev(event, input1)" oninput="moveFocus(event, input3)" />
+    <input id="input3" type="text" maxlength="1" class="ltr" onkeydown="moveFocusToPrev(event, input2)" oninput="moveFocus(event, input4)" />
+    <input id="input4" type="text" maxlength="1" class="ltr" onkeydown="moveFocusToPrev(event, input3)" oninput="moveFocus(event, input5)" />
+    <input id="input5" type="text" maxlength="1" class="ltr" onkeydown="moveFocusToPrev(event, input4)" oninput="moveFocus(event, input6)" />
+    <input id="input6" type="text" maxlength="1" class="ltr" onkeydown="moveFocusToPrev(event, input5)" oninput="moveFocus(event, null)" />
+  </form>
+
+  <script>
+    // Function to change input to '*' (bullet) when a valid digit is entered
+    function changeBulletToStar(input) {
+      if (/^\d$/.test(input.value)) {
+        input.value = '*';
+      }
+    }
+
+    // Focus to the next input field
+    function moveFocus(event, nextInput) {
+      const input = event.target;
+      const inputValue = input.value;
+      const pattern = /^\d$/;
+
+      // Only change to '*' if the input is a valid digit
+      if (pattern.test(inputValue)) {
+        changeBulletToStar(input);
+      } else {
+        input.value = ''; // Clear invalid input
+        return;
+      }
+
+      // Move focus to the next input field if there's a valid digit
+      if (inputValue !== '' && nextInput) {
+        nextInput.focus();
+      } else {
+        event.preventDefault(); // Prevent any unwanted behavior if the value is invalid
+      }
+    }
+
+    // Move focus to the previous input field on backspace or left arrow key
+    function moveFocusToPrev(event, prevInput) {
+      const input = event.target;
+      const inputValue = input.value;
+
+      // Move focus to the previous input if Backspace/Delete is pressed and current input is empty
+      if (['Backspace', 'Delete'].includes(event.key) && inputValue === '' && prevInput) {
+        prevInput.focus();
+      }
+    }
+  </script>
+
+</body>
+</html>
