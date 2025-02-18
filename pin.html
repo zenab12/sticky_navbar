@@ -33,7 +33,7 @@
     // Function to change input to '*' (bullet) when a valid digit is entered
     function changeBulletToStar(input) {
       if (/^\d$/.test(input.value)) {
-        input.value = '*';
+        input.value = input.value.replace(input.value, '*')
       }
     }
 
